@@ -1,13 +1,33 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" ng-app="currencyApp">
+
 <head>
-  <meta charset="utf-8">
-  <title>CurrencyConvertor</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Rate Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="/src/scripts/app.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <app-root></app-root>
+
+<body ng-controller="CurrencyController">
+
+  <h1>Currency Rate Calculator</h1>
+
+  <label>From Currency:</label>
+  <input type="text" ng-model="fromCurrency" placeholder="e.g., USD">
+
+  <label>Amount:</label>
+  <input type="number" ng-model="amount" placeholder="Enter amount">
+
+  <label>To Currency:</label>
+  <input type="text" ng-model="toCurrency" placeholder="e.g., EUR">
+
+  <button ng-click="convertCurrency()">Convert</button>
+
+  <h2>Converted Amount: {{ convertedAmount }}</h2>
+
 </body>
+
 </html>
