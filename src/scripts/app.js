@@ -1,7 +1,10 @@
 var app = angular.module('currencyApp', []);
 
 app.controller('CurrencyController', function ($scope, $http) {
-    $scope.convertedAmount = 0;
+    $scope.convertedAmount1 = 0;
+
+    $scope.fromCurrency = "USD";
+    $scope.toCurrency = "EUR";
 
     // Fetch exchange rates
     $scope.getExchangeRates = function () {
@@ -24,18 +27,24 @@ app.controller('CurrencyController', function ($scope, $http) {
 
     // Convert currency function
     $scope.convertCurrency = function () {
-        if ($scope.amount && $scope.fromCurrency && $scope.toCurrency) {
+        if ($scope.amount1 > 0) {
             let fromRate = $scope.rates[$scope.fromCurrency.toUpperCase()];
             let toRate = $scope.rates[$scope.toCurrency.toUpperCase()];
 
+
+
+
+
             if (fromRate && toRate) {
-                let eurAmount = $scope.amount / fromRate; // Convert to EUR
-                $scope.convertedAmount = (eurAmount * toRate).toFixed(2); // Convert to target currency
+                let eurAmount = $scope.amount1 / fromRate; // Convert to EUR
+                $scope.convertedAmount1 = (eurAmount * toRate).toFixed(2); // Convert to target currency
+
             } else {
-                $scope.convertedAmount = "Invalid currency selection!";
+                $scope.convertedAmount1 = "Invalid currency selection!";
             }
-        } else {
-            $scope.convertedAmount = "Please enter amount and select currencies!";
+        }
+        else {
+            $scope.convertedAmount1 = "Please enter amount and select currencies!";
         }
     };
 });

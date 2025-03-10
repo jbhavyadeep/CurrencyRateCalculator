@@ -15,18 +15,21 @@
 
   <h1>Currency Rate Calculator</h1>
 
-  <label>From Currency:</label>
-  <input type="text" ng-model="fromCurrency" placeholder="e.g., USD">
+  <label>Currency:</label>
+  <input type="text" ng-model="fromCurrency" placeholder="e.g., USD" ng-change="convertCurrency()">
 
   <label>Amount:</label>
-  <input type="number" ng-model="amount" placeholder="Enter amount">
+  <input type="number" id="a1" ng-model="amount1" placeholder="Enter amount" ng-change="convertCurrency()">
+  </br>
+  <label>To</label>
+  </br>
 
-  <label>To Currency:</label>
-  <input type="text" ng-model="toCurrency" placeholder="e.g., EUR">
+  <label>Currency:</label>
+  <input type="text" ng-model="toCurrency" placeholder="e.g., EUR" ng-change="convertCurrency()">
 
-  <button ng-click="convertCurrency()">Convert</button>
 
-  <h2>Converted Amount: {{ convertedAmount }}</h2>
+
+  <h2>Converted Amount: {{ convertedAmount1 }}</h2>
 
 </body>
 
